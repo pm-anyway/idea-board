@@ -36,7 +36,8 @@ export default async function DashboardPage() {
 
   // 관리자만 접근 가능
   const adminEmail = process.env.DASHBOARD_ADMIN_EMAIL
-  if (user.email !== adminEmail) redirect('/')
+  console.log('[Dashboard] user.email:', user.email, '| adminEmail:', adminEmail)
+  if (adminEmail && user.email !== adminEmail) redirect('/')
 
   // 모든 데이터 병렬 로딩
   const [
