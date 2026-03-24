@@ -24,7 +24,7 @@ export function Header() {
     try { await signOut() } catch { /* redirect throws */ }
   }
 
-  const displayName = profile?.full_name || profile?.email?.split('@')[0] || '사용자'
+  const displayName = profile?.full_name || user?.user_metadata?.full_name || user?.user_metadata?.name || profile?.email?.split('@')[0] || '사용자'
 
   return (
     <header className="bg-white/80 backdrop-blur-md border-b border-slate-200/60 sticky top-0 z-50">
