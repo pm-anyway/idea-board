@@ -146,3 +146,14 @@ export async function getDailyTrend() {
   const { data } = await supabase.rpc('daily_trend', { days: 30 })
   return data || []
 }
+
+// 일별 스냅샷 히스토리
+export async function getDailyStatsHistory() {
+  const supabase = await createClient()
+  const { data } = await supabase
+    .from('daily_stats')
+    .select('*')
+    .order('date', { ascending: true })
+    .limit(90)
+  return data || []
+}

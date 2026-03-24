@@ -14,6 +14,7 @@ import {
   getActivityByWeekday,
   getPostsByMonth,
   getDailyTrend,
+  getDailyStatsHistory,
 } from '@/lib/dashboard-queries'
 import { SummaryCards } from '@/components/dashboard/SummaryCards'
 import { DashboardSection } from '@/components/dashboard/DashboardSection'
@@ -27,6 +28,7 @@ import { PopularPostsRanking } from '@/components/dashboard/PopularPostsRanking'
 import { TopUsersRanking } from '@/components/dashboard/TopUsersRanking'
 import { RecentPostsList } from '@/components/dashboard/RecentPostsList'
 import { UnansweredPosts } from '@/components/dashboard/UnansweredPosts'
+import { DailyStatsHistory } from '@/components/dashboard/DailyStatsHistory'
 
 export default async function DashboardPage() {
   const supabase = await createClient()
@@ -53,6 +55,7 @@ export default async function DashboardPage() {
     weekdayData,
     monthlyData,
     dailyTrend,
+    dailyStatsHistory,
   ] = await Promise.all([
     getSummaryStats(),
     getGrowthStats(),
@@ -66,6 +69,7 @@ export default async function DashboardPage() {
     getActivityByWeekday(),
     getPostsByMonth(),
     getDailyTrend(),
+    getDailyStatsHistory(),
   ])
 
   const avgComments = summary.totalPosts > 0 ? (summary.totalComments / summary.totalPosts).toFixed(1) : '0'
@@ -79,6 +83,11 @@ export default async function DashboardPage() {
 
         {/* 요약 카드 */}
         <SummaryCards summary={summary} growth={growth} />
+
+        {/* 히스토리 (일별 스냅샷) */}
+        <DashboardSection title="히스토리 (일별 스냅샷)">
+          <DailyStatsHistory data={dailyStatsHistory} />
+        </DashboardSection>
 
         {/* 일별 추이 */}
         <DashboardSection title="활동 추이 (최근 30일)">
