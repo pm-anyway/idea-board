@@ -1,36 +1,29 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 사내 아이디어 보드
 
-## Getting Started
+> 개발자 없이 PM 혼자 2주 만에 출시한, Google OAuth 기반 사내 아이디어 수집·우선순위화 웹 서비스.
 
-First, run the development server:
+## Why
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+조직 내 직원들의 불편과 니즈를 파악할 마땅한 수단이 없었습니다. 설문은 일회성이고, 개발팀 리소스를 배정받기 어려운 상황에서 "어디에 얼마나 수요가 있는지"를 정량적으로 파악할 도구 자체가 존재하지 않았습니다.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+이 문제를 해결하기 위해 Claude Code 바이브코딩으로 직접 MVP를 만들었고, 좋아요·댓글 인터랙션 데이터로 자연스러운 우선순위가 형성되는 구조를 설계했습니다. 6주 만에 312명이 방문했고, 상위 아이디어는 피플팀 검토를 거쳐 파일럿으로 이어졌으며, 사내 만족도 관련 항목이 18% 개선되었습니다.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Screenshots / Demo
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+<img width="968" height="695" alt="스크린샷 2026-03-27 오후 2 31 42" src="https://github.com/user-attachments/assets/4ef72996-b807-4f79-98db-6fff14e33208" />
+<img width="1312" height="1110" alt="스크린샷 2026-03-27 오후 2 32 25" src="https://github.com/user-attachments/assets/a7e97793-b1cd-479f-afb5-b914104a03fe" />
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+## Highlights
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **2주 MVP 출시** — Claude Code 바이브코딩으로 기획부터 배포까지 1인 완주. 개발 리소스 없이도 실제 서비스를 만들 수 있다는 걸 직접 증명했습니다.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Google OAuth 인증 + 익명 게시** — 사내 계정으로만 접근 가능하면서도, 심리적 부담 없이 자유롭게 아이디어를 올릴 수 있는 구조.
 
-## Deploy on Vercel
+- **자연 우선순위 형성** — 좋아요·댓글 인터랙션과 인기순 정렬로, 별도 설문 없이도 조직의 실제 수요가 데이터로 드러납니다.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **유사 아이디어 자동 클러스터링** — 중복·유사 아이디어를 자동으로 묶어 의사결정자가 맥락을 한눈에 파악할 수 있게 합니다.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **GA4 + Playwright 자동화** — 사용성 지표를 실시간으로 추적하고, QA 자동화로 서비스 안정성을 유지합니다.
+
+- **실제 조직 의사결정 반영** — 상위 아이디어 피플팀 파일럿 시행 → 사내 만족도 18% 개선으로 직접 연결.
